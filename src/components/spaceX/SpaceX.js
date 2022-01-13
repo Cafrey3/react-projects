@@ -8,13 +8,16 @@ const SpaceX = () => {
         fetch('')
             .then(value => value.json())
             .then((value) => {
-                setSpaceX(value);
+                let filter = value.filter(value => value.launch_year !== 2020);
+                setSpaceX(filter);
             });
     }, []);
 
     return (
         <div>
-            {spaceX.map(value=><div></div> )}
+            {spaceX.map(value => <div key={value.flight_number}>
+                {value.mission_name} {value.launch_year}
+            </div>)}
         </div>
     );
 };
