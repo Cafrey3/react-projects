@@ -12,7 +12,8 @@ const Comments = () => {
 
     return (
         <div>
-            {comments.map(comments => <div>{comments.id}. {comments.name}. {comments.email}. {comments.body}</div>)}
+            {comments.map(comments =>
+                <div key={comments.id}> {comments.id}. {comments.name}. {comments.email}. {comments.body}</div>)}
         </div>
     );
 };
