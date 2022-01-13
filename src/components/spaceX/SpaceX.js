@@ -5,15 +5,16 @@ const SpaceX = () => {
     const [spaceX, setSpaceX] = useState([]);
 
     useEffect(() => {
-        fetch('https://api.spacexdata.com/v3/launches/')
+        fetch('')
             .then(value => value.json())
-            .then((value) = setSpaceX(spaceX));
+            .then((value) => {
+                setSpaceX(value);
+            });
     }, []);
-
 
     return (
         <div>
-
+            {spaceX.map(value=><div></div> )}
         </div>
     );
 };
