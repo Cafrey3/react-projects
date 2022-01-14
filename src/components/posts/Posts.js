@@ -6,14 +6,14 @@ const Posts = () => {
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(value => value.json())
-            .then((value) => setPosts(value));
-    }, []);
+    .then((value) => setPosts(value));
+}, []);
 
-    return (
-        <div>
-            {posts.map(posts => <div key={posts.id}>{posts.id}. {posts.title}. {posts.body}</div>)}
-        </div>
-    );
+return (
+    <div>
+        {posts.map(posts => <div key={posts.id}>{posts.id}. {posts.title}. {posts.body}</div>)}
+    </div>
+);
 };
 
 export default Posts;
