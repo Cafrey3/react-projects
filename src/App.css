@@ -1,0 +1,14 @@
+body {
+    padding: 5px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+.wrap {
+    font-family: sans-serif;
+    display: flex;
+}
