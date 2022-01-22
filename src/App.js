@@ -1,38 +1,46 @@
-import {useState} from "react";
+import React, {useEffect, useState} from 'react';
 
-import './App.css';
+import {} from './App.css';
+import {} from './components/Users/Users.css';
+import {} from './components/Form/Form.css';
+import Form from "./components/Form/Form";
 import Users from "./components/Users/Users";
-import UserDetails from "./components/UserDetails/UserDetails";
-import Posts from "./components/Posts/Posts";
-import {} from './components/User/User.css';
-import {} from './components/Users/Users.css'
-import {} from './components/UserDetails/UserDetails.css'
-import {} from './components/Post/Post.css'
-import {postService} from "./components/services/post.service";
+import {userService} from "./components/services/user.service";
+
 
 const App = () => {
+    const [users, setUsers] = useState([]);
+    const [filterUser, setFilterUser] = useState([]);
 
-    const [user, setUser] = useState(null);
-    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        userService.getAll().then(value => {
+            setUsers([...value])
+            setFilterUser([...value])
+        })
+        }, [])
 
+        const filter = (data) => {
+            let filteredArray =[...users]
 
-    const getUser = (user) => {
-        setUser(user);
-        setPosts([]);
-    };
+            if (data.name) {
+                filteredArray = filteredArray.filter(value => value.name.includes(data.name));
+            }
+            if (data.username) {
+                filteredArray = filteredArray.filter(value => value.username.includes(data.username));
+            }
+            if (data.email) {
+                filteredArray = filteredArray.filter(value => value.email.includes(data.email));
+            }
 
-    const getUserId = (id) => {
-        postService.getByUserId(id).then(value => setPosts([...value]));
-    };
-    return (
-        <>
-            <div className={'wrap'}>
-                <Users getUser={getUser}/>
-                {user && <UserDetails user={user} getUserId={getUserId}/>}
+            setFilterUser(filteredArray);
+        }
+
+        return (
+            <div>
+                <Form filter={filter}/>
+                <Users users={filterUser}/>
             </div>
-            {posts && <Posts posts={posts}/>}
-        </>
-    );
-};
+        );
+    };
 
-export default App;
+    export default App;

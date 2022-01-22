@@ -1,0 +1,5 @@
+.form {
+    font-weight: 600;
+    display: flex;
+    column-gap: 10px;
+}
