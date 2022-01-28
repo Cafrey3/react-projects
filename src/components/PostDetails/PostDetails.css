@@ -1,0 +1,9 @@
+.post_details {
+    padding: 15px;
+}
+
+.post_details button {
+    margin-bottom: 20px;
+    padding: 6px 30px 6px 30px;
+    font-weight: 700;
+}

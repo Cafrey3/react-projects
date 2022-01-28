@@ -1,0 +1,24 @@
+.main_users {
+    display: flex;
+    padding: 20px 5px 0 5px;
+
+}
+
+.main_users a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 3px;
+}
+
+.users {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    width: 500px;
+    font-weight: 600;
+}
+
+.users a:hover {
+    color: darkorange;
+}

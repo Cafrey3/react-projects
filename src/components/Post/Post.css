@@ -1,0 +1,20 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 400px;
+    padding: 20px 5px 0 5px;
+}
+
+.posts a {
+    color: black;
+    text-decoration: none;
+}
+
+.posts a:hover {
+    background-color: lightgray;
+}
+
+.main_posts {
+    display: flex;
+}
