@@ -3,7 +3,8 @@
 }
 
 .post_details button {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 250px;
     padding: 6px 30px 6px 30px;
     font-weight: 700;
 }

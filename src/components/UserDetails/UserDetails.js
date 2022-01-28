@@ -9,6 +9,8 @@ const PostDetails = () => {
     const [user, setUser] = useState(null);
 
     const {state} = useLocation();
+
+    
     useEffect(() => {
         if (state) {
             setUser(state);
@@ -17,6 +19,10 @@ const PostDetails = () => {
 
         postService.getByID(id).then(value => setUser({...value}));
     }, [state, id]);
+    
+    const comments = () => {
+      
+    }
 
     return (
         <div className={'user_details'}>
