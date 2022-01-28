@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Outlet, useLocation, useParams} from "react-router-dom";
+import {Link, Outlet, useLocation, useParams} from "react-router-dom";
 
 import {postService} from "../../services/post.service";
 import {} from './PostDetails.css';
@@ -10,7 +10,6 @@ const PostDetails = () => {
 
     const [post, setPost] = useState(null);
 
-
     useEffect(() => {
         if (state) {
             setPost(state);
@@ -18,8 +17,8 @@ const PostDetails = () => {
         }
 
         postService.getByID(id).then(value => setPost({...value}));
-    }, [state, id]);
 
+    }, [state, id]);
 
 
     return (
@@ -32,7 +31,8 @@ const PostDetails = () => {
                 <div><b>Body:</b> {post.body}</div>
             </div>
             }
-            <button>Comments</button>
+
+            <button><Link to={'comments'} state={{...post}}>Comments</Link></button>
             <div>
                 <Outlet/>
             </div>

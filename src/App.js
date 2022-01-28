@@ -7,7 +7,8 @@ import Users from "./components/Users/Users";
 import Header from "./components/Header/Header";
 import PostDetails from "./components/PostDetails/PostDetails";
 import UserDetails from "./components/UserDetails/UserDetails";
-import SinglePostComment from "./components/SinglePostComment/SinglePostComment";
+import PostComments from "./components/PostComments/PostComments";
+import UserPosts from "./components/UserPosts/UserPosts";
 
 const App = () => {
     return (
@@ -15,11 +16,13 @@ const App = () => {
             <Routes>
                 <Route path={'/'} element={<Header/>}>
                     <Route path={'users'} element={<Users/>}>
-                        <Route path={':id'} element={<UserDetails/>}/>
+                        <Route path={':id'} element={<UserDetails/>}>
+                            <Route path={'posts'} element={<UserPosts/>}/>
+                        </Route>
                     </Route>
                     <Route path={'posts'} element={<Posts/>}>
                         <Route path={':id'} element={<PostDetails/>}>
-                            <Route path={'comments'} element={<SinglePostComment/>}/>
+                            <Route path={'comments'} element={<PostComments/>}/>
                         </Route>
                     </Route>
                 </Route>

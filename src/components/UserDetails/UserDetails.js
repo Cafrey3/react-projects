@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {Link, Outlet, useLocation, useParams} from "react-router-dom";
 
 import {postService} from "../../services/post.service";
 import {} from './UserDetails.css';
 
 const PostDetails = () => {
     const {id} = useParams();
-    const [user, setUser] = useState(null);
-
     const {state} = useLocation();
 
-    
+    const [user, setUser] = useState(null);
+
     useEffect(() => {
         if (state) {
             setUser(state);
@@ -18,11 +17,8 @@ const PostDetails = () => {
         }
 
         postService.getByID(id).then(value => setUser({...value}));
+
     }, [state, id]);
-    
-    const comments = () => {
-      
-    }
 
     return (
         <div className={'user_details'}>
@@ -55,7 +51,8 @@ const PostDetails = () => {
                 </li>
             </ul>
             }
-            <button>Comments</button>
+            <button><Link to={'posts'} state={{...user}}>Comments</Link></button>
+            <div><Outlet/></div>
         </div>
     );
 };
