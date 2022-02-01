@@ -51,7 +51,7 @@ const PostDetails = () => {
                 </li>
             </ul>
             }
-            <button><Link to={'posts'} state={{...user}}>Comments</Link></button>
+            <button><Link to={'posts'} state={{...user}}>Posts</Link></button>
             <div><Outlet/></div>
         </div>
     );

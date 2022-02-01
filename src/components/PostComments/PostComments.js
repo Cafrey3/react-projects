@@ -1,19 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 
-import {commentService} from "../../services/comment.service";
+import {} from './PostComments.css';
 
 const PostComments = () => {
     let {id} = useParams();
-    const [comment, setComment] = useState(null);
+    const [comment, setComment] = useState([]);
 
     useEffect(() => {
-        commentService.getByID(id).then(value => setComment({...value}));
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+            .then(value => value.json())
+            .then((value) => {
+                setComment(value);
+            });
     }, [id]);
 
     return (
         <>
-            {comment &&
+            {comment.map(comment =>
                 <div className={'post_comments'}>
                     <div><b>PostId:</b> {comment.postId}</div>
                     <div><b>Id:</b> {comment.id}</div>
@@ -21,7 +25,7 @@ const PostComments = () => {
                     <div><b>Email:</b> {comment.email}</div>
                     <div><b>Body:</b> {comment.body}</div>
                 </div>
-            }
+            )}
         </>
 
     );

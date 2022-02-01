@@ -25,14 +25,14 @@ const PostDetails = () => {
         <div className={'post_details'}>
             {post &&
             <div>
-                <div><b>Id:</b> {post.id}</div>
                 <div><b>UserId:</b> {post.userId}</div>
+                <div><b>Id:</b> {post.id}</div>
                 <div><b>Title:</b> {post.title}</div>
                 <div><b>Body:</b> {post.body}</div>
             </div>
             }
 
-            <button><Link to={'comments'} state={{...post}}>Comments</Link></button>
+            <button className={'btn_comments'}><Link to={'comments'} state={{...post}}>Comments</Link></button>
             <div>
                 <Outlet/>
             </div>

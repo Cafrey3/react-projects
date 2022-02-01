@@ -9,3 +9,12 @@
     padding: 6px 30px 6px 30px;
     font-weight: 700;
 }
+
+.btn_comments a{
+    text-decoration: none;
+    color: black;
+}
+
+.btn_comments:hover {
+    cursor: pointer;
+}
