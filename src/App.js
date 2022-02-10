@@ -9,6 +9,8 @@ import PostDetails from "./components/PostDetails/PostDetails";
 import UserDetails from "./components/UserDetails/UserDetails";
 import PostComments from "./components/PostComments/PostComments";
 import UserPosts from "./components/UserPosts/UserPosts";
+import UserAlbums from "./components/UserAlbums/UserAlbums";
+import AlbumPhotos from "./components/AlbumPhotos/AlbumPhotos";
 
 const App = () => {
     return (
@@ -18,6 +20,9 @@ const App = () => {
                     <Route path={'users'} element={<Users/>}>
                         <Route path={':id'} element={<UserDetails/>}>
                             <Route path={'posts'} element={<UserPosts/>}/>
+                        </Route>
+                        <Route path={':id/albums'} element={<UserAlbums/>}>
+                            <Route path={':albumId/photos'} element={<AlbumPhotos/>}/>
                         </Route>
                     </Route>
                     <Route path={'posts'} element={<Posts/>}>

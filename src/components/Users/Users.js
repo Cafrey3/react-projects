@@ -11,6 +11,7 @@ const Users = () => {
     useEffect(() => {
         userService.getAll().then(value => setUsers([...value]))
     }, []);
+
     return (
         <div className={'main_users'}>
             <div className={'users'}>
