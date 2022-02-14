@@ -26,8 +26,8 @@ const App = () => {
     return (
         <div>
             <Form dispatch={dispatch}/>
-            <Cats cats={cats}/>
-            <Dogs dogs={dogs}/>
+            <Cats cats={cats} dispatch={dispatch}/>
+            <Dogs dogs={dogs} dispatch={dispatch}/>
         </div>
     );
 };
