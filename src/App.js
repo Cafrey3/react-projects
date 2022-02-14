@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useReducer} from 'react';
 
+import './App.css';
 import {Cats, Dogs, Form} from "./components";
 
 const reducer = (state, action) => {
@@ -24,10 +25,14 @@ const App = () => {
     let {cats, dogs} = state;
 
     return (
-        <div>
-            <Form dispatch={dispatch}/>
-            <Cats cats={cats} dispatch={dispatch}/>
-            <Dogs dogs={dogs} dispatch={dispatch}/>
+        <div className={'container'}>
+            <div>
+                <Form dispatch={dispatch}/>
+                <div className={'animals'}>
+                    <Cats cats={cats} dispatch={dispatch}/>
+                    <Dogs dogs={dogs} dispatch={dispatch}/>
+                </div>
+            </div>
         </div>
     );
 };

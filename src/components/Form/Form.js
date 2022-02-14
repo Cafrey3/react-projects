@@ -1,5 +1,7 @@
 import React, {useRef} from 'react';
 
+import './Form.css';
+
 const Form = ({dispatch}) => {
     const catInput = useRef();
     const dogInput = useRef();
@@ -18,7 +20,7 @@ const Form = ({dispatch}) => {
     };
 
     return (
-        <form onSubmit={form}>
+        <form onSubmit={form} className={'form'}>
             <input type="text" placeholder={'cat'} ref={catInput}/>
             <button onClick={addCat}>Add Cat</button>
             <input type="text" placeholder={'dog'} ref={dogInput}/>
